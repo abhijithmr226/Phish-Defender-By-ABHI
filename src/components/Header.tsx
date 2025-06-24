@@ -1,5 +1,5 @@
 
-import { Shield, AiNetwork, SecurityCheck } from "@hugeicons/react";
+import { Shield01Icon, AiNetworkIcon, SecurityCheckIcon } from "@hugeicons/react";
 
 export const Header = () => {
   const currentTime = new Date().toLocaleTimeString();
@@ -9,7 +9,7 @@ export const Header = () => {
     <header className="text-center">
       <div className="flex items-center justify-center mb-4">
         <div className="relative">
-          <Shield className="w-16 h-16 text-cyber-cyan animate-pulse-glow" />
+          <Shield01Icon className="w-16 h-16 text-cyber-cyan animate-pulse-glow" />
           <div className="absolute inset-0 w-16 h-16 border-2 border-cyber-cyan rounded-full animate-ping opacity-20"></div>
         </div>
       </div>
