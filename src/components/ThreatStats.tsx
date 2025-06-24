@@ -2,14 +2,14 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { 
-  TrendingUpIcon, 
-  ActivityIcon, 
-  Shield01Icon, 
-  Alert02Icon, 
-  View01Icon, 
-  CheckmarkCircle01Icon,
-  ComputerIcon,
-  TimeIcon
+  TrendingUp, 
+  Activity, 
+  Shield, 
+  AlertTriangle, 
+  Eye, 
+  CheckCircle,
+  Computer,
+  Clock
 } from "@hugeicons/react";
 import { AnalysisResult } from "./PhishDefender";
 import { useState, useEffect } from "react";
@@ -55,7 +55,7 @@ export const ThreatStats = ({ analysisResult }: ThreatStatsProps) => {
       <Card className="bg-cyber-navy/50 border-cyber-cyan/20 backdrop-blur-sm">
         <CardHeader>
           <CardTitle className="flex items-center text-cyber-cyan">
-            <ActivityIcon className="w-5 h-5 mr-2" />
+            <Activity className="w-5 h-5 mr-2" />
             Analysis Status
           </CardTitle>
         </CardHeader>
@@ -86,7 +86,7 @@ export const ThreatStats = ({ analysisResult }: ThreatStatsProps) => {
             </div>
           ) : (
             <div className="text-center py-8">
-              <Shield01Icon className="w-12 h-12 mx-auto text-gray-600 mb-3" />
+              <Shield className="w-12 h-12 mx-auto text-gray-600 mb-3" />
               <p className="text-gray-500">No analysis performed yet</p>
             </div>
           )}
@@ -97,7 +97,7 @@ export const ThreatStats = ({ analysisResult }: ThreatStatsProps) => {
       <Card className="bg-cyber-navy/50 border-cyber-cyan/20 backdrop-blur-sm">
         <CardHeader>
           <CardTitle className="flex items-center text-cyber-cyan">
-            <TrendingUpIcon className="w-5 h-5 mr-2" />
+            <TrendingUp className="w-5 h-5 mr-2" />
             Session Statistics
           </CardTitle>
         </CardHeader>
@@ -118,7 +118,7 @@ export const ThreatStats = ({ analysisResult }: ThreatStatsProps) => {
           <div className="space-y-3">
             <div className="flex items-center justify-between">
               <div className="flex items-center">
-                <TimeIcon className="w-4 h-4 text-cyber-green mr-2" />
+                <Clock className="w-4 h-4 text-cyber-green mr-2" />
                 <span className="text-sm text-gray-300">Current Time</span>
               </div>
               <span className="text-sm text-white">{currentTime.toLocaleTimeString()}</span>
@@ -126,7 +126,7 @@ export const ThreatStats = ({ analysisResult }: ThreatStatsProps) => {
 
             <div className="flex items-center justify-between">
               <div className="flex items-center">
-                <ComputerIcon className="w-4 h-4 text-cyber-cyan mr-2" />
+                <Computer className="w-4 h-4 text-cyber-cyan mr-2" />
                 <span className="text-sm text-gray-300">Browser</span>
               </div>
               <span className="text-sm text-white">
@@ -138,7 +138,7 @@ export const ThreatStats = ({ analysisResult }: ThreatStatsProps) => {
 
             <div className="flex items-center justify-between">
               <div className="flex items-center">
-                <View01Icon className="w-4 h-4 text-cyber-orange mr-2" />
+                <Eye className="w-4 h-4 text-cyber-orange mr-2" />
                 <span className="text-sm text-gray-300">Platform</span>
               </div>
               <span className="text-sm text-white">{browserInfo.platform}</span>
@@ -151,7 +151,7 @@ export const ThreatStats = ({ analysisResult }: ThreatStatsProps) => {
       <Card className="bg-cyber-navy/50 border-cyber-cyan/20 backdrop-blur-sm">
         <CardHeader>
           <CardTitle className="flex items-center text-cyber-cyan">
-            <Shield01Icon className="w-5 h-5 mr-2" />
+            <Shield className="w-5 h-5 mr-2" />
             System Information
           </CardTitle>
         </CardHeader>
@@ -173,9 +173,9 @@ export const ThreatStats = ({ analysisResult }: ThreatStatsProps) => {
               <div className="text-xs text-gray-400 mb-1">Cookies Enabled</div>
               <div className="flex items-center">
                 {browserInfo.cookieEnabled ? (
-                  <CheckmarkCircle01Icon className="w-4 h-4 text-cyber-green mr-1" />
+                  <CheckCircle className="w-4 h-4 text-cyber-green mr-1" />
                 ) : (
-                  <Alert02Icon className="w-4 h-4 text-cyber-red mr-1" />
+                  <AlertTriangle className="w-4 h-4 text-cyber-red mr-1" />
                 )}
                 <span className={`text-sm ${browserInfo.cookieEnabled ? 'text-cyber-green' : 'text-cyber-red'}`}>
                   {browserInfo.cookieEnabled ? 'Enabled' : 'Disabled'}
