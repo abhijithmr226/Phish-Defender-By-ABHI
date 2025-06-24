@@ -3,15 +3,15 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { 
-  Alert02Icon, 
-  Shield01Icon, 
-  CheckmarkCircle01Icon, 
-  View01Icon, 
-  Flash01Icon, 
-  FileTextIcon,
-  Link01Icon,
-  SecurityIcon
-} from "@hugeicons/react";
+  AlertTriangle, 
+  Shield, 
+  CheckCircle, 
+  Eye, 
+  Zap, 
+  FileText,
+  Link,
+  Lock
+} from "lucide-react";
 import { EmailData, AnalysisResult } from "./PhishDefender";
 
 interface AnalysisResultsProps {
@@ -29,7 +29,7 @@ export const AnalysisResults = ({ emailData, result, isAnalyzing }: AnalysisResu
             <div className="relative w-20 h-20 mx-auto mb-6">
               <div className="absolute inset-0 border-4 border-cyber-cyan/20 rounded-full"></div>
               <div className="absolute inset-0 border-4 border-cyber-cyan border-t-transparent rounded-full animate-spin"></div>
-              <Flash01Icon className="absolute inset-0 m-auto w-8 h-8 text-cyber-cyan" />
+              <Zap className="absolute inset-0 m-auto w-8 h-8 text-cyber-cyan" />
             </div>
             <h3 className="text-xl font-semibold text-cyber-cyan mb-2">AI Analysis in Progress</h3>
             <p className="text-gray-400 mb-4">Email security analysis running...</p>
@@ -52,7 +52,7 @@ export const AnalysisResults = ({ emailData, result, isAnalyzing }: AnalysisResu
     switch (verdict) {
       case 'phishing':
         return {
-          icon: Alert02Icon,
+          icon: AlertTriangle,
           color: 'text-cyber-red',
           bg: 'bg-threat-gradient',
           label: 'PHISHING DETECTED',
@@ -60,7 +60,7 @@ export const AnalysisResults = ({ emailData, result, isAnalyzing }: AnalysisResu
         };
       case 'suspicious':
         return {
-          icon: View01Icon,
+          icon: Eye,
           color: 'text-cyber-orange',
           bg: 'bg-warning-gradient',
           label: 'SUSPICIOUS',
@@ -68,7 +68,7 @@ export const AnalysisResults = ({ emailData, result, isAnalyzing }: AnalysisResu
         };
       default:
         return {
-          icon: CheckmarkCircle01Icon,
+          icon: CheckCircle,
           color: 'text-cyber-green',
           bg: 'bg-safe-gradient',
           label: 'SAFE',
@@ -134,7 +134,7 @@ export const AnalysisResults = ({ emailData, result, isAnalyzing }: AnalysisResu
         <Card className="bg-cyber-navy/50 border-cyber-cyan/20 backdrop-blur-sm">
           <CardHeader>
             <CardTitle className="flex items-center text-cyber-cyan">
-              <FileTextIcon className="w-5 h-5 mr-2" />
+              <FileText className="w-5 h-5 mr-2" />
               Original Email
             </CardTitle>
           </CardHeader>
@@ -173,7 +173,7 @@ export const AnalysisResults = ({ emailData, result, isAnalyzing }: AnalysisResu
         <Card className="bg-cyber-navy/50 border-cyber-cyan/20 backdrop-blur-sm">
           <CardHeader>
             <CardTitle className="flex items-center text-cyber-cyan">
-              <SecurityIcon className="w-5 h-5 mr-2" />
+              <Lock className="w-5 h-5 mr-2" />
               Analysis Details
             </CardTitle>
           </CardHeader>
@@ -206,7 +206,7 @@ export const AnalysisResults = ({ emailData, result, isAnalyzing }: AnalysisResu
             {emailData.urls.length > 0 && (
               <div>
                 <h4 className="text-sm font-semibold text-gray-300 mb-2 flex items-center">
-                  <Link01Icon className="w-4 h-4 mr-1" />
+                  <Link className="w-4 h-4 mr-1" />
                   Detected URLs:
                 </h4>
                 <div className="space-y-1 max-h-32 overflow-y-auto">
@@ -239,7 +239,7 @@ export const AnalysisResults = ({ emailData, result, isAnalyzing }: AnalysisResu
         <Card className="bg-cyber-navy/50 border-cyber-red/20 backdrop-blur-sm">
           <CardHeader>
             <CardTitle className="flex items-center text-cyber-red">
-              <Alert02Icon className="w-5 h-5 mr-2" />
+              <AlertTriangle className="w-5 h-5 mr-2" />
               Detected Threats
             </CardTitle>
           </CardHeader>
