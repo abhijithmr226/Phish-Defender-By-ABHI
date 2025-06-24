@@ -1,5 +1,5 @@
 
-[![Live](https://img.shields.io/badge/Live-Demo-green?style=for-the-badge&logo=vercel)](https://lovable.dev/projects/f731e66c-42be-4d0a-9d23-8d62bb94b250)
+[![Live](https://img.shields.io/badge/Live-Demo-green?style=for-the-badge&logo=vercel)](https://phish-sentinel-ai-defender.lovable.app/)
 [![Tech Stack](https://img.shields.io/badge/Tech%20Stack-React%2C%20Vite%2C%20Tailwind-blueviolet?style=for-the-badge&logo=react)]()
 [![License: MIT](https://img.shields.io/badge/License-MIT-lightgrey?style=for-the-badge)](https://opensource.org/licenses/MIT)
 [![TypeScript](https://img.shields.io/badge/Language-TypeScript-blue?style=for-the-badge&logo=typescript)]()
@@ -9,7 +9,7 @@
 
 ## 🌐 Live Preview
 
-🚀 [**Click here to view the live project**](https://lovable.dev/projects/f731e66c-42be-4d0a-9d23-8d62bb94b250)
+🚀 [**Click here to view the live project**](https://phish-sentinel-ai-defender.lovable.app/)
 
 ---
 
