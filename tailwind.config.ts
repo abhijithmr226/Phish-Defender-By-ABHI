@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,6 +62,14 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				cyber: {
+					blue: '#0d1b2a',
+					navy: '#1b263b',
+					cyan: '#00d4ff',
+					green: '#00ff88',
+					red: '#ff3366',
+					orange: '#ff6b35'
 				}
 			},
 			borderRadius: {
@@ -84,11 +93,35 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'pulse-glow': {
+					'0%, 100%': {
+						boxShadow: '0 0 5px rgba(0, 212, 255, 0.5)'
+					},
+					'50%': {
+						boxShadow: '0 0 20px rgba(0, 212, 255, 0.8)'
+					}
+				},
+				'scan-line': {
+					'0%': {
+						transform: 'translateX(-100%)'
+					},
+					'100%': {
+						transform: 'translateX(100%)'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
+				'scan-line': 'scan-line 2s ease-in-out infinite'
+			},
+			backgroundImage: {
+				'cyber-gradient': 'linear-gradient(135deg, #0d1b2a 0%, #1b263b 50%, #0d1b2a 100%)',
+				'threat-gradient': 'linear-gradient(135deg, #ff3366 0%, #ff6b35 100%)',
+				'safe-gradient': 'linear-gradient(135deg, #00ff88 0%, #00d4ff 100%)',
+				'warning-gradient': 'linear-gradient(135deg, #ff6b35 0%, #ffaa00 100%)'
 			}
 		}
 	},
