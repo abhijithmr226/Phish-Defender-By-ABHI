@@ -6,7 +6,14 @@ import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Upload, FileText, Mail, Zap, RotateCcw } from "lucide-react";
+import { 
+  Upload04Icon, 
+  FileTextIcon, 
+  Mail01Icon, 
+  FlashIcon, 
+  RotateRight01Icon,
+  DangerIcon 
+} from "@hugeicons/react";
 import { EmailData } from "./PhishDefender";
 import { useToast } from "@/hooks/use-toast";
 
@@ -126,7 +133,7 @@ Security Team`;
     <Card className="bg-cyber-navy/50 border-cyber-cyan/20 backdrop-blur-sm">
       <CardHeader>
         <CardTitle className="flex items-center text-cyber-cyan">
-          <Mail className="w-5 h-5 mr-2" />
+          <Mail01Icon className="w-5 h-5 mr-2" />
           Email Analysis Input
         </CardTitle>
       </CardHeader>
@@ -135,11 +142,11 @@ Security Team`;
         <Tabs defaultValue="paste" className="w-full">
           <TabsList className="grid w-full grid-cols-2 bg-cyber-blue/50">
             <TabsTrigger value="paste" className="data-[state=active]:bg-cyber-cyan/20">
-              <FileText className="w-4 h-4 mr-2" />
+              <FileTextIcon className="w-4 h-4 mr-2" />
               Paste Email
             </TabsTrigger>
             <TabsTrigger value="upload" className="data-[state=active]:bg-cyber-cyan/20">
-              <Upload className="w-4 h-4 mr-2" />
+              <Upload04Icon className="w-4 h-4 mr-2" />
               Upload File
             </TabsTrigger>
           </TabsList>
@@ -192,7 +199,7 @@ Security Team`;
           
           <TabsContent value="upload" className="space-y-4">
             <div className="border-2 border-dashed border-cyber-cyan/30 rounded-lg p-8 text-center">
-              <Upload className="w-12 h-12 mx-auto text-cyber-cyan mb-4" />
+              <Upload04Icon className="w-12 h-12 mx-auto text-cyber-cyan mb-4" />
               <p className="text-gray-300 mb-4">
                 Upload .eml, .msg, or .txt files
               </p>
@@ -219,7 +226,7 @@ Security Team`;
               </>
             ) : (
               <>
-                <Zap className="w-4 h-4 mr-2" />
+                <FlashIcon className="w-4 h-4 mr-2" />
                 Analyze Email
               </>
             )}
@@ -230,6 +237,7 @@ Security Team`;
             variant="outline"
             className="border-cyber-orange text-cyber-orange hover:bg-cyber-orange/10"
           >
+            <DangerIcon className="w-4 h-4 mr-2" />
             Load Sample Phishing Email
           </Button>
           
@@ -238,7 +246,7 @@ Security Team`;
             variant="outline"
             className="border-gray-500 text-gray-400 hover:bg-gray-700/20"
           >
-            <RotateCcw className="w-4 h-4 mr-2" />
+            <RotateRight01Icon className="w-4 h-4 mr-2" />
             Reset
           </Button>
         </div>

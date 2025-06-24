@@ -1,27 +1,53 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
-import { TrendingUp, Activity, Shield, AlertTriangle, Eye, CheckCircle } from "lucide-react";
+import { 
+  TrendingUpIcon, 
+  ActivityIcon, 
+  Shield01Icon, 
+  Alert02Icon, 
+  View01Icon, 
+  CheckmarkCircle01Icon,
+  ComputerIcon,
+  TimeIcon
+} from "@hugeicons/react";
 import { AnalysisResult } from "./PhishDefender";
+import { useState, useEffect } from "react";
 
 interface ThreatStatsProps {
   analysisResult: AnalysisResult | null;
 }
 
 export const ThreatStats = ({ analysisResult }: ThreatStatsProps) => {
-  // Mock statistics for demonstration
-  const mockStats = {
-    totalScanned: 1247,
-    phishingDetected: 89,
-    suspiciousEmails: 156,
-    safeEmails: 1002,
-    todayScanned: 23,
-    threatsPrevented: 12
-  };
+  const [currentTime, setCurrentTime] = useState(new Date());
+  const [sessionStart] = useState(new Date());
+  const [analysisCount, setAnalysisCount] = useState(0);
 
-  const threatPercentage = Math.round((mockStats.phishingDetected / mockStats.totalScanned) * 100);
-  const suspiciousPercentage = Math.round((mockStats.suspiciousEmails / mockStats.totalScanned) * 100);
-  const safePercentage = Math.round((mockStats.safeEmails / mockStats.totalScanned) * 100);
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentTime(new Date());
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    if (analysisResult) {
+      setAnalysisCount(prev => prev + 1);
+    }
+  }, [analysisResult]);
+
+  const sessionDuration = Math.floor((currentTime.getTime() - sessionStart.getTime()) / 1000);
+  const sessionMinutes = Math.floor(sessionDuration / 60);
+  const sessionSeconds = sessionDuration % 60;
+
+  // Get real browser information
+  const browserInfo = {
+    userAgent: navigator.userAgent,
+    language: navigator.language,
+    onLine: navigator.onLine,
+    platform: navigator.platform,
+    cookieEnabled: navigator.cookieEnabled
+  };
 
   return (
     <div className="space-y-6">
@@ -29,7 +55,7 @@ export const ThreatStats = ({ analysisResult }: ThreatStatsProps) => {
       <Card className="bg-cyber-navy/50 border-cyber-cyan/20 backdrop-blur-sm">
         <CardHeader>
           <CardTitle className="flex items-center text-cyber-cyan">
-            <Activity className="w-5 h-5 mr-2" />
+            <ActivityIcon className="w-5 h-5 mr-2" />
             Analysis Status
           </CardTitle>
         </CardHeader>
@@ -60,98 +86,100 @@ export const ThreatStats = ({ analysisResult }: ThreatStatsProps) => {
             </div>
           ) : (
             <div className="text-center py-8">
-              <Shield className="w-12 h-12 mx-auto text-gray-600 mb-3" />
+              <Shield01Icon className="w-12 h-12 mx-auto text-gray-600 mb-3" />
               <p className="text-gray-500">No analysis performed yet</p>
             </div>
           )}
         </CardContent>
       </Card>
 
-      {/* Threat Statistics */}
+      {/* Session Statistics */}
       <Card className="bg-cyber-navy/50 border-cyber-cyan/20 backdrop-blur-sm">
         <CardHeader>
           <CardTitle className="flex items-center text-cyber-cyan">
-            <TrendingUp className="w-5 h-5 mr-2" />
-            Threat Statistics
+            <TrendingUpIcon className="w-5 h-5 mr-2" />
+            Session Statistics
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div className="text-center p-3 bg-cyber-blue/20 rounded-lg">
-              <div className="text-2xl font-bold text-white">{mockStats.totalScanned}</div>
-              <div className="text-xs text-gray-400">Total Scanned</div>
+              <div className="text-2xl font-bold text-white">{analysisCount}</div>
+              <div className="text-xs text-gray-400">Emails Analyzed</div>
             </div>
             <div className="text-center p-3 bg-cyber-blue/20 rounded-lg">
-              <div className="text-2xl font-bold text-cyber-cyan">{mockStats.todayScanned}</div>
-              <div className="text-xs text-gray-400">Today</div>
+              <div className="text-lg font-bold text-cyber-cyan">
+                {sessionMinutes}:{sessionSeconds.toString().padStart(2, '0')}
+              </div>
+              <div className="text-xs text-gray-400">Session Time</div>
             </div>
           </div>
 
           <div className="space-y-3">
             <div className="flex items-center justify-between">
               <div className="flex items-center">
-                <AlertTriangle className="w-4 h-4 text-cyber-red mr-2" />
-                <span className="text-sm text-gray-300">Phishing</span>
+                <TimeIcon className="w-4 h-4 text-cyber-green mr-2" />
+                <span className="text-sm text-gray-300">Current Time</span>
               </div>
-              <div className="flex items-center space-x-2">
-                <span className="text-sm text-white">{mockStats.phishingDetected}</span>
-                <span className="text-xs text-cyber-red">({threatPercentage}%)</span>
-              </div>
+              <span className="text-sm text-white">{currentTime.toLocaleTimeString()}</span>
             </div>
-            <Progress value={threatPercentage} className="bg-cyber-blue/30" />
 
             <div className="flex items-center justify-between">
               <div className="flex items-center">
-                <Eye className="w-4 h-4 text-cyber-orange mr-2" />
-                <span className="text-sm text-gray-300">Suspicious</span>
+                <ComputerIcon className="w-4 h-4 text-cyber-cyan mr-2" />
+                <span className="text-sm text-gray-300">Browser</span>
               </div>
-              <div className="flex items-center space-x-2">
-                <span className="text-sm text-white">{mockStats.suspiciousEmails}</span>
-                <span className="text-xs text-cyber-orange">({suspiciousPercentage}%)</span>
-              </div>
+              <span className="text-sm text-white">
+                {browserInfo.userAgent.includes('Chrome') ? 'Chrome' :
+                 browserInfo.userAgent.includes('Firefox') ? 'Firefox' :
+                 browserInfo.userAgent.includes('Safari') ? 'Safari' : 'Other'}
+              </span>
             </div>
-            <Progress value={suspiciousPercentage} className="bg-cyber-blue/30" />
 
             <div className="flex items-center justify-between">
               <div className="flex items-center">
-                <CheckCircle className="w-4 h-4 text-cyber-green mr-2" />
-                <span className="text-sm text-gray-300">Safe</span>
+                <View01Icon className="w-4 h-4 text-cyber-orange mr-2" />
+                <span className="text-sm text-gray-300">Platform</span>
               </div>
-              <div className="flex items-center space-x-2">
-                <span className="text-sm text-white">{mockStats.safeEmails}</span>
-                <span className="text-xs text-cyber-green">({safePercentage}%)</span>
-              </div>
+              <span className="text-sm text-white">{browserInfo.platform}</span>
             </div>
-            <Progress value={safePercentage} className="bg-cyber-blue/30" />
           </div>
         </CardContent>
       </Card>
 
-      {/* Security Insights */}
+      {/* System Information */}
       <Card className="bg-cyber-navy/50 border-cyber-cyan/20 backdrop-blur-sm">
         <CardHeader>
           <CardTitle className="flex items-center text-cyber-cyan">
-            <Shield className="w-5 h-5 mr-2" />
-            Security Insights
+            <Shield01Icon className="w-5 h-5 mr-2" />
+            System Information
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="space-y-3">
             <div className="flex items-center justify-between">
-              <span className="text-sm text-gray-400">Threats Prevented</span>
-              <span className="text-lg font-bold text-cyber-green">{mockStats.threatsPrevented}</span>
+              <span className="text-sm text-gray-400">Connection Status</span>
+              <span className={`text-sm font-bold ${browserInfo.onLine ? 'text-cyber-green' : 'text-cyber-red'}`}>
+                {browserInfo.onLine ? 'ONLINE' : 'OFFLINE'}
+              </span>
             </div>
             
             <div className="bg-cyber-blue/20 rounded-lg p-3">
-              <div className="text-xs text-gray-400 mb-1">Top Threat Vector</div>
-              <div className="text-sm text-white">Social Engineering</div>
+              <div className="text-xs text-gray-400 mb-1">Language</div>
+              <div className="text-sm text-white">{browserInfo.language}</div>
             </div>
             
             <div className="bg-cyber-blue/20 rounded-lg p-3">
-              <div className="text-xs text-gray-400 mb-1">Risk Level Trend</div>
+              <div className="text-xs text-gray-400 mb-1">Cookies Enabled</div>
               <div className="flex items-center">
-                <TrendingUp className="w-4 h-4 text-cyber-green mr-1" />
-                <span className="text-sm text-cyber-green">Decreasing</span>
+                {browserInfo.cookieEnabled ? (
+                  <CheckmarkCircle01Icon className="w-4 h-4 text-cyber-green mr-1" />
+                ) : (
+                  <Alert02Icon className="w-4 h-4 text-cyber-red mr-1" />
+                )}
+                <span className={`text-sm ${browserInfo.cookieEnabled ? 'text-cyber-green' : 'text-cyber-red'}`}>
+                  {browserInfo.cookieEnabled ? 'Enabled' : 'Disabled'}
+                </span>
               </div>
             </div>
           </div>
@@ -163,11 +191,11 @@ export const ThreatStats = ({ analysisResult }: ThreatStatsProps) => {
         <CardContent className="py-4">
           <div className="flex items-center justify-center space-x-2">
             <div className="w-2 h-2 bg-cyber-green rounded-full animate-pulse"></div>
-            <span className="text-sm text-cyber-green font-medium">AI Engine: OPERATIONAL</span>
+            <span className="text-sm text-cyber-green font-medium">System: OPERATIONAL</span>
           </div>
           <div className="flex items-center justify-center space-x-2 mt-2">
             <div className="w-2 h-2 bg-cyber-cyan rounded-full animate-pulse"></div>
-            <span className="text-xs text-cyber-cyan">BERT Model: v2.1 Active</span>
+            <span className="text-xs text-cyber-cyan">Analysis Engine: Ready</span>
           </div>
         </CardContent>
       </Card>

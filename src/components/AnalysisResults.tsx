@@ -2,7 +2,16 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
-import { AlertTriangle, Shield, CheckCircle, Eye, Zap, FileText } from "lucide-react";
+import { 
+  Alert02Icon, 
+  Shield01Icon, 
+  CheckmarkCircle01Icon, 
+  View01Icon, 
+  FlashIcon, 
+  FileTextIcon,
+  LinkIcon,
+  SecurityIcon
+} from "@hugeicons/react";
 import { EmailData, AnalysisResult } from "./PhishDefender";
 
 interface AnalysisResultsProps {
@@ -20,16 +29,16 @@ export const AnalysisResults = ({ emailData, result, isAnalyzing }: AnalysisResu
             <div className="relative w-20 h-20 mx-auto mb-6">
               <div className="absolute inset-0 border-4 border-cyber-cyan/20 rounded-full"></div>
               <div className="absolute inset-0 border-4 border-cyber-cyan border-t-transparent rounded-full animate-spin"></div>
-              <Zap className="absolute inset-0 m-auto w-8 h-8 text-cyber-cyan" />
+              <FlashIcon className="absolute inset-0 m-auto w-8 h-8 text-cyber-cyan" />
             </div>
             <h3 className="text-xl font-semibold text-cyber-cyan mb-2">AI Analysis in Progress</h3>
-            <p className="text-gray-400 mb-4">BERT model is analyzing email patterns...</p>
+            <p className="text-gray-400 mb-4">Email security analysis running...</p>
             <div className="w-full max-w-md mx-auto space-y-2">
               <div className="flex justify-between text-sm text-gray-500">
                 <span>Analyzing content...</span>
-                <span>33%</span>
+                <span>Processing</span>
               </div>
-              <Progress value={33} className="bg-cyber-blue/30" />
+              <Progress value={75} className="bg-cyber-blue/30" />
             </div>
           </div>
         </CardContent>
@@ -43,7 +52,7 @@ export const AnalysisResults = ({ emailData, result, isAnalyzing }: AnalysisResu
     switch (verdict) {
       case 'phishing':
         return {
-          icon: AlertTriangle,
+          icon: Alert02Icon,
           color: 'text-cyber-red',
           bg: 'bg-threat-gradient',
           label: 'PHISHING DETECTED',
@@ -51,7 +60,7 @@ export const AnalysisResults = ({ emailData, result, isAnalyzing }: AnalysisResu
         };
       case 'suspicious':
         return {
-          icon: Eye,
+          icon: View01Icon,
           color: 'text-cyber-orange',
           bg: 'bg-warning-gradient',
           label: 'SUSPICIOUS',
@@ -59,7 +68,7 @@ export const AnalysisResults = ({ emailData, result, isAnalyzing }: AnalysisResu
         };
       default:
         return {
-          icon: CheckCircle,
+          icon: CheckmarkCircle01Icon,
           color: 'text-cyber-green',
           bg: 'bg-safe-gradient',
           label: 'SAFE',
@@ -125,7 +134,7 @@ export const AnalysisResults = ({ emailData, result, isAnalyzing }: AnalysisResu
         <Card className="bg-cyber-navy/50 border-cyber-cyan/20 backdrop-blur-sm">
           <CardHeader>
             <CardTitle className="flex items-center text-cyber-cyan">
-              <FileText className="w-5 h-5 mr-2" />
+              <FileTextIcon className="w-5 h-5 mr-2" />
               Original Email
             </CardTitle>
           </CardHeader>
@@ -164,7 +173,7 @@ export const AnalysisResults = ({ emailData, result, isAnalyzing }: AnalysisResu
         <Card className="bg-cyber-navy/50 border-cyber-cyan/20 backdrop-blur-sm">
           <CardHeader>
             <CardTitle className="flex items-center text-cyber-cyan">
-              <Shield className="w-5 h-5 mr-2" />
+              <SecurityIcon className="w-5 h-5 mr-2" />
               Analysis Details
             </CardTitle>
           </CardHeader>
@@ -196,7 +205,10 @@ export const AnalysisResults = ({ emailData, result, isAnalyzing }: AnalysisResu
 
             {emailData.urls.length > 0 && (
               <div>
-                <h4 className="text-sm font-semibold text-gray-300 mb-2">Detected URLs:</h4>
+                <h4 className="text-sm font-semibold text-gray-300 mb-2 flex items-center">
+                  <LinkIcon className="w-4 h-4 mr-1" />
+                  Detected URLs:
+                </h4>
                 <div className="space-y-1 max-h-32 overflow-y-auto">
                   {emailData.urls.map((url, index) => (
                     <div key={index} className="text-xs text-cyber-orange bg-cyber-blue/20 p-2 rounded">
@@ -227,7 +239,7 @@ export const AnalysisResults = ({ emailData, result, isAnalyzing }: AnalysisResu
         <Card className="bg-cyber-navy/50 border-cyber-red/20 backdrop-blur-sm">
           <CardHeader>
             <CardTitle className="flex items-center text-cyber-red">
-              <AlertTriangle className="w-5 h-5 mr-2" />
+              <Alert02Icon className="w-5 h-5 mr-2" />
               Detected Threats
             </CardTitle>
           </CardHeader>
