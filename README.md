@@ -47,17 +47,19 @@ It then performs a **real-time integrity check** using an AI-based validation lo
 
 ## 📁 Project Structure
 
+```plaintext
 📦 phish-sentinel-ai-defender
-├── public/ # Static assets (e.g., favicon, index.html)
+├── public/                 # Static assets (e.g., favicon, index.html)
 ├── src/
-│ ├── components/ # Reusable UI elements
-│ ├── pages/ # Pages like Home, Results
-│ ├── styles/ # Tailwind/global CSS files
-│ └── main.tsx # React app entry point
-├── index.html # Main HTML template
-├── tailwind.config.ts # Tailwind configuration
-├── vite.config.ts # Vite bundler config
-└── tsconfig.json # TypeScript configuration
+│   ├── components/         # Reusable UI components (buttons, cards, etc.)
+│   ├── pages/              # Page-level components (Home, Results, etc.)
+│   ├── styles/             # Tailwind and global CSS styles
+│   └── main.tsx            # React app entry point
+├── index.html              # HTML template used by Vite
+├── tailwind.config.ts      # Tailwind CSS configuration
+├── vite.config.ts          # Vite development/build configuration
+└── tsconfig.json           # TypeScript compiler options
+
 
 yaml
 Copy
