@@ -1,74 +1,63 @@
+# 🛡️ Phish Sentinel: AI Email Defender
 
 [![Live](https://img.shields.io/badge/Live-Demo-green?style=for-the-badge&logo=vercel)](https://phish-sentinel-ai-defender.lovable.app/)
 [![Tech Stack](https://img.shields.io/badge/Tech%20Stack-React%2C%20Vite%2C%20Tailwind-blueviolet?style=for-the-badge&logo=react)]()
-[![License: MIT](https://img.shields.io/badge/License-MIT-lightgrey?style=for-the-badge)](https://opensource.org/licenses/MIT)
 [![TypeScript](https://img.shields.io/badge/Language-TypeScript-blue?style=for-the-badge&logo=typescript)]()
 [![UI](https://img.shields.io/badge/UI-shadcn--ui-orange?style=for-the-badge)]()
+[![License: MIT](https://img.shields.io/badge/License-MIT-lightgrey?style=for-the-badge)](https://opensource.org/licenses/MIT)
+
+## 📌 Overview
+
+**Phish Sentinel** is an AI-powered web application that helps users detect phishing emails by analyzing their contents. It uses intelligent validation of the email's sender address, link structures, suspicious text patterns, and other features to identify potential threats.
+
+Whether you're a security-conscious individual or building something to help others stay safe from phishing attacks — this tool demonstrates how AI can assist in email threat detection effectively.
 
 ---
 
-## 🌐 Live Preview
+## 🌐 Live Demo
 
-🚀 [**Click here to view the live project**](https://phish-sentinel-ai-defender.lovable.app/)
+👉 [**Click here to view the live project**](https://phish-sentinel-ai-defender.lovable.app/)  
+Hosted securely via **Vercel**.
+
+---
+
+## 🧠 How It Works
+
+The application takes in **email-related inputs** such as:
+
+- **Email ID** of the sender
+- **Text content** from the email body
+- **Links/URLs** embedded in the email
+
+It then performs a **real-time integrity check** using an AI-based validation logic (you can customize this with NLP/ML tools or back-end APIs), helping the user quickly determine if the email appears to be safe or suspicious.
 
 ---
 
 ## 🛠️ Tech Stack
 
-| Technology    | Description                            |
-|---------------|----------------------------------------|
-| ⚛️ React       | Frontend UI Library                     |
-| ⚡ Vite        | Fast Build Tool & Dev Server           |
-| 🧠 TypeScript  | Type-safe JavaScript                   |
-| 🎨 Tailwind CSS | Utility-first CSS Framework            |
-| 💅 shadcn/ui  | Beautiful UI Components                |
+| Technology     | Purpose                                     |
+|----------------|---------------------------------------------|
+| ⚛️ React        | Frontend component-based UI library          |
+| ⚡ Vite         | Lightning-fast development & build tool     |
+| 🧠 TypeScript   | Adds type safety to JavaScript               |
+| 🎨 Tailwind CSS | Utility-first CSS for responsive design      |
+| 💅 shadcn/ui   | Modern prebuilt UI components                |
 
 ---
 
 ## 📁 Project Structure
 
-```bash
+📦 phish-sentinel-ai-defender
+├── public/ # Static assets (e.g., favicon, index.html)
 ├── src/
-│   ├── components/       # UI Components
-│   ├── pages/            # Application Pages
-│   ├── styles/           # Tailwind and Global Styles
-│   └── main.tsx          # App Entry Point
-├── public/               # Static Assets
-├── index.html            # HTML Template
-├── vite.config.ts        # Vite Configuration
-├── tailwind.config.ts    # Tailwind Configuration
-🚀 Getting Started Locally
-Make sure Node.js is installed.
-
-bash
-Copy
-Edit
-# 1. Clone the repository
-git clone <YOUR_REPOSITORY_URL>
-
-# 2. Navigate into the project directory
-cd <YOUR_PROJECT_NAME>
-
-# 3. Install dependencies
-npm install
-
-# 4. Start the development server
-npm run dev
-Now visit http://localhost:5173 in your browser 🚀
-
-📸 Preview
-Add a screenshot or GIF of your UI here (optional).
-
-🧾 License
-This project is licensed under the MIT License.
-Feel free to use and modify it as per your needs.
-
-👤 Author
-Abhijith M.R
-
-📧 abhijithmr226@gmail.com
-
-© 2025 Abhijith M.R — All rights reserved.
+│ ├── components/ # Reusable UI elements
+│ ├── pages/ # Pages like Home, Results
+│ ├── styles/ # Tailwind/global CSS files
+│ └── main.tsx # React app entry point
+├── index.html # Main HTML template
+├── tailwind.config.ts # Tailwind configuration
+├── vite.config.ts # Vite bundler config
+└── tsconfig.json # TypeScript configuration
 
 yaml
 Copy
@@ -76,9 +65,34 @@ Edit
 
 ---
 
-Let me know if you want:
-- A preview GIF or screenshot section filled
-- Deployment badge for Netlify, Vercel, or GitHub Pages
-- Contribution guidelines
+## 🚀 Getting Started Locally
 
-All ready to shine on GitHub ⭐
+Make sure **Node.js** and **npm** are installed.
+
+### Step-by-step Instructions
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/abhijithmr226/phish-sentinel-ai-defender.git
+
+# 2. Navigate into the directory
+cd phish-sentinel-ai-defender
+
+# 3. Install the required dependencies
+npm install
+
+# 4. Start the development server
+npm run dev
+Visit http://localhost:5173 to view the application in your browser.
+
+🧪 Features
+✅ Real-time phishing checks
+
+✅ Type-safe component-based development
+
+✅ Beautiful and responsive UI using Tailwind & shadcn/ui
+
+✅ Optimized with Vite for fast load times
+
+✅ Easily deployable to platforms like Vercel, Netlify, or GitHub Pages
+
