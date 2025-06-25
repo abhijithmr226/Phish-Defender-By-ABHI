@@ -33,18 +33,6 @@ It then performs a **real-time integrity check** using an AI-based validation lo
 
 ---
 
-## 🛠️ Tech Stack
-
-| Technology     | Purpose                                     |
-|----------------|---------------------------------------------|
-| ⚛️ React        | Frontend component-based UI library          |
-| ⚡ Vite         | Lightning-fast development & build tool     |
-| 🧠 TypeScript   | Adds type safety to JavaScript               |
-| 🎨 Tailwind CSS | Utility-first CSS for responsive design      |
-| 💅 shadcn/ui   | Modern prebuilt UI components                |
-
----
-
 ## 📁 Project Structure
 
 ```plaintext
@@ -60,12 +48,21 @@ It then performs a **real-time integrity check** using an AI-based validation lo
 ├── vite.config.ts          # Vite development/build configuration
 └── tsconfig.json           # TypeScript compiler options
 
+---
 
-yaml
-Copy
-Edit
+## 🛠️ Tech Stack
+
+| Technology     | Purpose                                     |
+|----------------|---------------------------------------------|
+| ⚛️ React        | Frontend component-based UI library          |
+| ⚡ Vite         | Lightning-fast development & build tool     |
+| 🧠 TypeScript   | Adds type safety to JavaScript               |
+| 🎨 Tailwind CSS | Utility-first CSS for responsive design      |
+| 💅 shadcn/ui   | Modern prebuilt UI components                |
 
 ---
+
+
 
 ## 🚀 Getting Started Locally
 
